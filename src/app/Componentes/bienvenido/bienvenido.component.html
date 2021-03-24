@@ -1,0 +1,17 @@
+<h1>Promedios</h1>
+
+<label>Ingrese dos edades para promediar</label>
+<br><br>
+<input id="txtNumeroUno" type="number" [(ngModel)]="numero1">
+<br><br>
+<input id="txtNumeroDos" type="number" [(ngModel)]="numero2">
+<br><br>
+<button (click)="Promediar()">Promedio</button>
+<button (click)="Limpiar()">Limpiar</button>
+<br><br>
+<label>Suma: {{suma}}</label>
+<br><br>
+<label>Promedio: {{promedio}}</label>
+<br><br>
+<a routerLink="/login">A login/a>
+
