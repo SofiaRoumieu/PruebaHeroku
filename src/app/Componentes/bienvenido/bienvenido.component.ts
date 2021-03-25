@@ -22,6 +22,7 @@ export class BienvenidoComponent implements OnInit {
     this.numero1='';
     this.numero2='';
     this.promedio='';
+    this.suma='';
   }
   ngOnInit(): void {
   }
