@@ -41,7 +41,7 @@ import { environment } from '../environments/environment';
     MatTableModule,
     MatIconModule,
     HttpClientModule,
-    //AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule
