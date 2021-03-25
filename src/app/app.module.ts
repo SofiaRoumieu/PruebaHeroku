@@ -22,6 +22,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
+import { firebase } from "../environments/environment";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +43,10 @@ import { environment } from '../environments/environment';
     MatTableModule,
     MatIconModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebase),
     AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
-    AngularFireStorageModule
+    AngularFireAuthModule // auth
+    //AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
