@@ -18,12 +18,15 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(usuario.email, usuario.pass);
   }
 
-  public async signOut() {
-    await this.afAuth.signOut();
-    this.router.navigate(['/']);
-  }
-
   public async register(usuario: Usuario) {
     return this.afAuth.createUserWithEmailAndPassword(usuario.email, usuario.pass);
+  }
+  isLoggedIn() {
+    return this.afAuth.authState;
+  }
+  logout() {
+    this.afAuth.signOut().then(() => {
+      this.router.navigate(['/login']);
+    })
   }
 }

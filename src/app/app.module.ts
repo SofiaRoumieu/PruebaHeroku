@@ -23,13 +23,19 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 import { firebase } from "../environments/environment";
+import { MenuComponent } from './Componentes/menu/menu.component';
+import { AltaProductoComponent } from './Componentes/alta-producto/alta-producto.component';
+import { TablaPaisesComponent } from './Componentes/tabla-paises/tabla-paises.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     BienvenidoComponent,
-    ErrorComponent
+    ErrorComponent,
+    MenuComponent,
+    AltaProductoComponent,
+    TablaPaisesComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,10 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   public ObtenerPaises(){
-    return this.http.get("https://restcountries.com/v3.1/all");
+    return this.http.get("https://restcountries.com/v2/continent/americas");
+  }
+
+  public ObtenerGit(){
+    return this.http.get("https://api.github.com/users/sofiaroumieu");
   }
 }

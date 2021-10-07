@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-bienvenido',
@@ -7,24 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BienvenidoComponent implements OnInit {
 
-  public numero1 ;
-  public numero2;
-  public promedio;
-  public suma;
-  constructor() { }
+  public nombre ;
+  public foto;
+  public url;
+  public seguidores;
+  public repositorios;
+  public seguidos;
 
-  Promediar() {
-    this.suma=this.numero1+this.numero2;
-    this.promedio = (this.suma)/2;
-  }
+  constructor(private apiService: ApiService) { }
 
-  Limpiar(){
-    this.numero1='';
-    this.numero2='';
-    this.promedio='';
-    this.suma='';
-  }
   ngOnInit(): void {
+    let name: string;
+    let bandera: string;
+    this.apiService.ObtenerGit().subscribe((misDatos: any) => {
+      this.nombre=misDatos.login;
+      this.foto= misDatos.avatar_url;
+      this.url=misDatos.url;
+      this.seguidores=misDatos.followers;
+      this.seguidos=misDatos.following;
+      this.repositorios=misDatos.public_repos;
+      console.log(this.nombre + ', '+this.foto+', '+this.seguidores );
+    }, error=>{console.log(error);})
   }
 
 }
