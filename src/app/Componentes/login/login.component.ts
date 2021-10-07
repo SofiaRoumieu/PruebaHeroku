@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
               private api: ApiService) {
 
                 this.api.ObtenerPaises().subscribe((paises:any)=>{console.log(paises)}, error=>{console.log(error)});
-                this.api.ObtenerMiGit().subscribe((miGit:any)=>{console.log(miGit)}, error=>{console.log(error)});
+                //this.api.ObtenerMiGit().subscribe((miGit:any)=>{console.log(miGit)}, error=>{console.log(error)});
                }
 
   ngOnInit() {
