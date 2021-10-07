@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { firestore } from 'firebase';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: Router,
               private authService: AuthService,
-              private db: AngularFirestore) { }
+              private db: AngularFirestore,
+              private api: ApiService) {
+
+                this.api.ObtenerPaises().subscribe((paises:any)=>{console.log(paises)}, error=>{console.log(error)});
+                this.api.ObtenerMiGit().subscribe((miGit:any)=>{console.log(miGit)}, error=>{console.log(error)});
+               }
 
   ngOnInit() {
     this.usuario.email = 'admin@mail.com';
