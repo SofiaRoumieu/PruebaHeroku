@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(public afAuth: AngularFireAuth,
     private router: Router) { }
 
   public async signIn(usuario: Usuario) {

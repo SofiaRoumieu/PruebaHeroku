@@ -1,0 +1,29 @@
+<table border=1 class="table table-hover table-red" style="background-color: white;">
+    <thead>
+      
+      <th>Código</th>
+      <th>Descripción</th>
+      <!--<th>Precio</th>
+      <th>Stock</th>
+      <th>Pais</th>
+      <th>Comestible</th>
+
+  
+      <th>
+        <div *ngIf="!cantidadProductos">
+          <div class="spinner-border" role="status"></div>
+        </div>
+      </th>-->
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of listadoProductos"   (click)="mostrarDetalles(producto)">
+        <td>{{producto.codigo}}</td>
+        <td>{{producto.descripcion}}</td>
+        <!--<td>{{producto.precio}}</td>
+        <td>{{producto.stock}}</td>
+        <td>{{producto.paisOrigen}}</td>
+        <td >{{producto.comestible}}</td>
+        <td> <i class="fa fa-check "></i></td>-->
+      </tr>
+    </tbody>
+  </table>

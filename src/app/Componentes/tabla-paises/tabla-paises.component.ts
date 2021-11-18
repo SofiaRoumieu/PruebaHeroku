@@ -14,29 +14,38 @@ export class TablaPaisesComponent implements OnInit {
   public listaPaises: Pais[] = []
 
   public bandera: string;
+  
 
   constructor(private apiService: ApiService) { }
+
 
   ngOnInit(): void {
     let name: string;
     let bandera: string;
+    let capital:string;
+    let poblacion:number;
+    let nombreNativo:string;
     this.apiService.ObtenerPaises().subscribe((paises: any) => {
-      for (let index = 0; index < paises.length; index++) {
+      for (let index = 0; index < 10; index++) 
+      {
+        console.log(paises[index]);
         name = paises[index].name.common;
         bandera = paises[index].flags.png;
-        this.listaPaises.push(new Pais(name, bandera))
+        capital=paises[index].capital;
+        poblacion=paises[index].population;
+        nombreNativo=paises[index].name.official;
+        this.listaPaises.push(new Pais(name, bandera,nombreNativo,capital,poblacion));
       }
-      this.listaPaises = this.shuffle(this.listaPaises).slice(0, 10);
-    }
-    )
-  }
+      //this.listaPaises = this.shuffle(this.listaPaises).slice(0, 10);
+    });
+  } 
 
   SeleccionarPais(pais: Pais) {
     this.bandera = pais.bandera;
-    this.seSeleccionoPais.emit(pais.nombre);
+    this.seSeleccionoPais.emit(pais);
   }
 
-  shuffle(array) {
+  /*shuffle(array) {
     let currentIndex = array.length, randomIndex;
     while (currentIndex != 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
@@ -46,6 +55,6 @@ export class TablaPaisesComponent implements OnInit {
     }
 
     return array;
-  }
+  }*/
 
 }

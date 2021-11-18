@@ -1,9 +1,5 @@
-#cantidadPublico {
-    width: 20em;
-  }
-
-  img {
-    width:  100px;
-    height: 100px;
-    object-fit: scale-down;
+.container {
+  max-width: 960px;
 }
+
+.lh-condensed { line-height: 1.25; }
