@@ -19,6 +19,7 @@ export class ModificacionContainerComponent implements OnInit {
   { }
 
   ngOnInit(): void {
+
   }
 
   modificarContainer()
@@ -26,6 +27,7 @@ export class ModificacionContainerComponent implements OnInit {
     console.log(this.container);
     this.containerSvc.getContainers().snapshotChanges().pipe(take(1)).subscribe(list=>{
       list.forEach((response):any =>{
+        console.log("hola");
         let container = response.payload.doc.data();
           let id = response.payload.doc.id;
           if(container.codigo == this.container.codigo)
