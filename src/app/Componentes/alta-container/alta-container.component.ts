@@ -34,6 +34,10 @@ export class AltaContainerComponent implements OnInit {
         cont.codigo = this.formContainer.get('codigo')?.value,
         cont.marca = this.formContainer.get('marca')?.value,
         cont.capacidad = this.formContainer.get('capacidad')?.value,
+        cont.stock=[];
+        this.formContainer.get('codigo').setValue("");
+        this.formContainer.get('marca').setValue("");
+        this.formContainer.get('capacidad').setValue("");
         this.altaContainer.emit(cont);
     }
   }

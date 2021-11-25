@@ -4,8 +4,9 @@
       <a *ngIf='estado_activo'class="py-2 d-none d-md-inline-block" routerLink="altaProducto" routerActive="activebutton">Alta de Productos</a>
       <a *ngIf='estado_activo'class="py-2 d-none d-md-inline-block" routerLink="verProducto" routerActive="activebutton">Ver Productos</a>
       <a *ngIf='estado_activo && esAdmin'class="py-2 d-none d-md-inline-block" routerLink="abmContainer" routerActive="activebutton">ABM Container</a>
-      <a *ngIf='estado_activo'class="py-2 d-none d-md-inline-block" (click)='cerrarSesion()' routerActive="activebutton">Cerrar Sesión</a>
+      <a *ngIf='estado_activo'class="py-2 d-none d-md-inline-block" routerLink="cargarContainer" routerActive="activebutton">Cargar Container</a>
       <a *ngIf='estado_activo'class="py-2 d-none d-md-inline-block" routerActive="activebutton">{{mail_usuario}}</a> 
+      <a *ngIf='estado_activo'class="py-2 d-none d-md-inline-block" (click)='cerrarSesion()' routerActive="activebutton">Cerrar Sesión</a>
       <a *ngIf='!estado_activo || estado_activo==null' class="py-2 d-none d-md-inline-block" routerLink="login" routerActive="activebutton">Login</a>
      </div>
   </nav>

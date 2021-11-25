@@ -26,10 +26,21 @@ export class ProductosService {
     //return productos;
   }
 
+  getProductossss(){
+    return this.referenciaAlaColeccion;
+  }
+  
   getProducto(key: string) {
     return this.firestore.collection("productos").doc(key).valueChanges();
   }
 
+  updateStockProducto(id:string,data:any)
+   { 
+     console.log(data);
+     return  this.referenciaAlaColeccion.doc(id).update({
+       stock: data.stock
+     }) 
+   }
 
   guardarProducto(producto: Producto) {
     console.log(producto);

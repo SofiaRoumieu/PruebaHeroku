@@ -41,6 +41,16 @@ export class ContainerService {
       return this.dbContainersRef.doc(id).delete();
    }
 
+   updateStockContainer(id:string,data:any)
+   { 
+     console.log(data);
+     return  this.dbContainersRef.doc(id).update({
+       stock: data.stock,
+       capacidadParcial:data.capacidadParcial
+     }) 
+ 
+   }
+ 
 
   public getAll() {
     return this.containers;

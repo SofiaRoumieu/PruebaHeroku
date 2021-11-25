@@ -51,6 +51,7 @@ export class AbmContainerComponent implements OnInit {
     this.container.codigo = container.codigo;
     this.container.marca = container.marca;
     this.container.capacidad = container.capacidad;
+    this.container.stock=[];
   }
 
   ngOnInit(): void {

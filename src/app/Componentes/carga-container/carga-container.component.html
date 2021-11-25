@@ -1,0 +1,110 @@
+<div  class="container py-3">
+    <h3>Carga de Containers</h3>
+    <div *ngIf="!containerSeleccionado" class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h5>Seleccioná el conteiner</h5>
+        <table border=1 class="table table-hover table-red">
+            <thead>
+            <tr>
+                <th scope="col">Marca </th>
+                <th scope="col">Capacidad Total</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Capacidad Parcial</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let container of listaContainers  | async">
+                <tr (click)="tomarContainer(container)" >
+                <td>{{container.marca}}</td>
+                <td>{{container.capacidad}}</td>
+                <td>{{container.stock | stockContainer}}</td>
+                <td>{{container.capacidadParcial}}</td>
+            </tr>
+            </ng-container>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="containerSeleccionado" class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <table border=1 class="table table-hover table-red">
+            <thead>
+            <tr>
+                <th scope="col" colspan="4">Container seleccionado</th>
+            </tr>
+            <tr>
+                <th scope="col">Marca </th>
+                <th scope="col">Capacidad Total</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Capacidad Parcial</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container>
+                <tr (click)="tomarContainer(container)" >
+                <th scope="row">{{container.marca}}</th>
+                <td>{{container.capacidad}}</td>
+                <td>{{container.stock | stockContainer}} </td>
+                <td>{{container.capacidadParcial}}</td>
+            </tr>
+            </ng-container>
+            </tbody>
+        </table>
+
+        <div *ngIf="!productoSeleccionado" class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h5>Seleccioná el producto</h5>
+            <table border=1 class="table table-hover table-red">
+                <thead>
+                <tr>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Stock Disponible</th>
+                </tr>
+                </thead>
+                <tbody>
+                <ng-container *ngFor="let producto of listadoProductos">
+                    <tr (click)="tomarProducto(producto)" >
+                    <td>{{producto.descripcion}}</td>
+                    <td>{{producto.stock}}</td>
+                </tr>
+                </ng-container>
+                </tbody>
+            </table>
+        </div>
+        
+        <div *ngIf="productoSeleccionado">  
+            <table border=1 class="table table-hover table-red">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Producto </th>
+                    </tr>
+                <tr>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Stock Disponible</th>
+                </tr>
+                </thead>
+                <tbody>
+                <ng-container>
+                    <tr (click)="tomarContainer(container)" >
+                    <th scope="row">{{producto.descripcion}}</th>
+                    <td>{{producto.stock}}</td>
+                </tr>
+                </ng-container>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <h5>Ingresa una cantidad</h5>
+                </div>
+            </div>
+            <div class="row formulario">
+                <div class="col-md-6 mb-3">
+                    <label for="cantidad" class="form-label">Cantidad:</label>
+                    <input type="number" class="form-control" id="cantidad" placeholder="Stock" [(ngModel)]="cantidadIngresada">
+                </div>
+                <div class="col-md-12 d-grid gap-2">
+                    <br>
+                    <button type="button" (click)="cargarProducto()" >
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

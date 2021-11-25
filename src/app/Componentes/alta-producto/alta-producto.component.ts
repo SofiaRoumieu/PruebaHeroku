@@ -51,6 +51,12 @@ export class AltaProductoComponent implements OnInit {
       //let producto = new Producto(this.descripcion, this.precio, this.stock, this.paisOrigen, this.comestible);
       let producto = new Producto(this.formProducto.get('descripcion')?.value, this.formProducto.get('precio')?.value, this.formProducto.get('stock')?.value, this.formProducto.get('paisOrigen')?.value, this.formProducto.get('comestible')?.value,this.formProducto.get('codigo')?.value);
       this.productoService.guardarProducto(producto).then(resp => {
+        this.formProducto.get('descripcion').setValue("");
+        this.formProducto.get('precio').setValue("");
+        this.formProducto.get('stock').setValue("");
+        this.formProducto.get('paisOrigen').setValue("");
+        this.formProducto.get('comestible').setValue("");
+        this.formProducto.get('codigo').setValue("");
         Swal.fire({
           title:'Producto guardado',
           text:'El producto se guardó correctamente ',

@@ -29,10 +29,8 @@ import { VerProductoComponent } from './Componentes/ver-producto/ver-producto.co
 import { ListaProductosComponent } from './Componentes/lista-productos/lista-productos.component';
 import { DetalleProductoComponent } from './Componentes/detalle-producto/detalle-producto.component';
 import { DetallePaisComponent } from './Componentes/detalle-pais/detalle-pais.component';
-import { AbmContainerComponent } from './Componentes/abm-container/abm-container.component';
-import { AltaContainerComponent } from './Componentes/alta-container/alta-container.component';
-import { ModificacionContainerComponent } from './Componentes/modificacion-container/modificacion-container.component';
-import { BajaContainerComponent } from './Componentes/baja-container/baja-container.component';
+import { CargaContainerComponent } from './Componentes/carga-container/carga-container.component';
+import { StockContainerPipe } from './pipes/stock-container.pipe';
 
 @NgModule({
   declarations: [
@@ -47,10 +45,8 @@ import { BajaContainerComponent } from './Componentes/baja-container/baja-contai
     ListaProductosComponent,
     DetalleProductoComponent,
     DetallePaisComponent,
-    AbmContainerComponent,
-    AltaContainerComponent,
-    ModificacionContainerComponent,
-    BajaContainerComponent
+    CargaContainerComponent,
+    StockContainerPipe
   ],
   imports: [
     BrowserModule,
